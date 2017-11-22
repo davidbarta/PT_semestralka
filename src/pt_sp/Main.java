@@ -24,6 +24,11 @@ public class Main {
 
         Graph g = new Graph(routers, edges);
 
+        /*
+            +--------------------------------------------------------------------------------------------------------------+
+            |                                  TUTO CAST NEMAZAT, ALE IGNOROVAT                                            |
+            +--------------------------------------------------------------------------------------------------------------+
+        */
 //		Router nodeA = new Router(1);
 //		Router nodeB = new Router(2);
 //		Router nodeC = new Router(3);
@@ -54,6 +59,12 @@ public class Main {
 //		graph.addNode(nodeF);
 //
 //        graph = Router.calculateShortestPathFromSource(graph, nodeA);
+
+        /*
+            +--------------------------------------------------------------------------------------------------------------+
+            |                                       KONEC IGNOROVANE CASTI                                                 |
+            +--------------------------------------------------------------------------------------------------------------+
+        */
 
         g = g.calculateShortestPathFromSource(g, g.getRouters().get(1));
         g.printShortestPathFromSource(g, g.getRouters().get(1));

@@ -85,35 +85,40 @@ public class Router {
     }
 
     /**
-     * @return the shortestPath
+     * Vraci seznam s nejkratsi cestou
+     * @return seznam s nejkratsi cestou
      */
     public List<Router> getShortestPath() {
         return shortestPath;
     }
 
     /**
-     * @param shortestPath the shortestPath to set
+     * Nastavi nejkratsi cestu
+     * @param shortestPath nejkratsi cesta
      */
     public void setShortestPath(List<Router> shortestPath) {
         this.shortestPath = shortestPath;
     }
 
     /**
-     * @return the distance
+     * Vraci vzdalenost
+     * @return vzdalenost
      */
     public int getDistance() {
         return distance;
     }
 
     /**
-     * @param distance the distance to set
+     * Nastavi vzdalenost
+     * @param distance vzdalenost
      */
     public void setDistance(int distance) {
         this.distance = distance;
     }
 
     /**
-     * @return the adjacentNodes
+     * Vraci mapu se sousednimi routery
+     * @return mapa se sousednimi routery
      */
     public Map<Router, Integer> getAdjacentNodes() {
         return adjacentNodes;

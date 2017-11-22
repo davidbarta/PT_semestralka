@@ -204,17 +204,11 @@ public class Graph {
     }
 	
 	/**
-	 * @return the nodes
+     * Vraci SET s routery v grafu
+	 * @return SET s routery v grafu
 	 */
 	public Set<Router> getNodes() {
 		return nodes;
-	}
-
-	/**
-	 * @param nodes the nodes to set
-	 */
-	public void setNodes(Set<Router> nodes) {
-		this.nodes = nodes;
 	}
 
 
