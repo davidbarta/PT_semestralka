@@ -20,9 +20,10 @@ public class Main {
 		String s = "vstup3.txt";
 		takeInformation(s);
 //		Graph g = makeGraph();
-//		printhGraph(g);
+
 
         Graph g = new Graph(routers, edges);
+//        g.toString();
 
         /*
             +--------------------------------------------------------------------------------------------------------------+
@@ -66,8 +67,54 @@ public class Main {
             +--------------------------------------------------------------------------------------------------------------+
         */
 
-        g = g.calculateShortestPathFromSource(g, g.getRouters().get(1));
-        g.printShortestPathFromSource(g, g.getRouters().get(1));
+//        g.calculateShortestPathFromSource(g.getRouters().get(1));
+//        g.printShortestPathFromSource(g, g.getRouters().get(1));
+
+        /*
+            +--------------------------------------------------------------------------------------------------------------+
+            |                                           Testovani DFS                                                      |
+            +--------------------------------------------------------------------------------------------------------------+
+        */
+
+        ArrayList<Router> visited = new ArrayList<>();
+
+        Router A = new Router(1);
+        Router B = new Router(2);
+        Router C = new Router(3);
+        Router D = new Router(4);
+        Router E = new Router(5);
+
+        A.getNext().add(new Edge(A.getId(), B, 1));
+        A.getNext().add(new Edge(A.getId(), C, 1));
+        B.getNext().add(new Edge(B.getId(), A, 1));
+        B.getNext().add(new Edge(B.getId(), D, 1));
+        C.getNext().add(new Edge(C.getId(), A, 1));
+        C.getNext().add(new Edge(C.getId(), D, 1));
+        C.getNext().add(new Edge(C.getId(), E, 1));
+        D.getNext().add(new Edge(D.getId(), B, 1));
+        D.getNext().add(new Edge(D.getId(), C, 1));
+        D.getNext().add(new Edge(D.getId(), E, 1));
+        E.getNext().add(new Edge(E.getId(), C, 1));
+        E.getNext().add(new Edge(E.getId(), D, 1));
+
+        System.out.println("Graf:");
+        System.out.println("  A");
+        System.out.println("  /\\");
+        System.out.println(" C  B");
+        System.out.println(" |\\ |");
+        System.out.println(" | \\|");
+        System.out.println(" E--D");
+
+        System.out.println();
+
+        g.DFS(A, E, visited);
+
+        /*
+            +--------------------------------------------------------------------------------------------------------------+
+            |                                        Konec testovani DFS                                                   |
+            +--------------------------------------------------------------------------------------------------------------+
+        */
+
 	}
 
 	/**

@@ -61,6 +61,47 @@ public class Graph {
 	}
 
 
+    /*
+       +--------------------------------------------------------------------------------------------------------------+
+       |                                             DFS                                                              |
+       +--------------------------------------------------------------------------------------------------------------+
+    */
+
+    public static void DFS(Router start, Router end, ArrayList<Router> visited) {
+        int current;
+        int size;
+        visited.add(start);
+
+        if (start.equals(end)) {
+            for (int i = 0; i < visited.size(); i++) {
+                System.out.print(visited.get(i).toString() + " ");
+            }
+            System.out.println();
+            visited.remove(start);
+            return;
+        }
+
+        current = 0;
+        size = start.getNext().size();
+        while (current != size) {
+            if (!(visited.contains(start.getNext().get(current).getNextRouter()))) {
+                DFS(start.getNext().get(current).getNextRouter(), end, visited);
+            }
+            current++;
+        }
+        for (int i = 0; i < visited.size(); i++) {
+            System.out.print(visited.get(i).toString() + " ");
+        }
+        System.out.println();
+        visited.remove(start);
+    }
+
+	/*
+       +--------------------------------------------------------------------------------------------------------------+
+       |                                          KONEC DFS                                                           |
+       +--------------------------------------------------------------------------------------------------------------+
+    */
+
 
     /*
        +--------------------------------------------------------------------------------------------------------------+
@@ -70,11 +111,10 @@ public class Graph {
 
     /**
      * Vypocte nejkratsi cestu Dijkstra algoritmem a vrati graf s cestami
-     * @param graph graf, ve kterem hledame cesty
      * @param source router, od ktereho hledame cesty
      * @return graf s cestami
      */
-    public Graph calculateShortestPathFromSource(Graph graph, Router source) {
+    public void calculateShortestPathFromSource(Router source) {
         source.setDistance(0);
 
         Set<Router> settledNodes = new HashSet<>();
@@ -96,8 +136,6 @@ public class Graph {
             }
             settledNodes.add(currentNode);
         }
-
-        return graph;
     }
 
     /**
